@@ -1,0 +1,84 @@
+export class Consulta{ -> se comienza creando una clase que despues se exportsra para poder llamar.
+    constructor(){ -> se creara un constructor para comenzar a trabajar 
+
+    }
+    personajes(){ ->crearemos un metodo de clase llamado persnajes
+        fetch(`https://rickandmortyapi.com/api/character`)//recibe un parametro una URL
+        .then(respuesta => respuesta.json())//LOS DATOS RECIBIDOS SON CONVERTIDOS A FORMATO JSON
+        .then(respuesta => {//SE RECIBEN LOS DATOS EN FORMATO JSON
+            console.log(respuesta);//SE MUESTRAN LOS DATOS OBTENIDOS
+            let {results} = respuesta;//se obtinen los personajes
+            let personajes = ``; -> se crea un objeto vacio para mas adelante llamarlo
+            let contador = 0; -> el contador es para poner un limite de personajes que querremos ver, se utiliza mas adelante
+            results.map(personaje => {//se recorre el arreglo de personajes
+                let {created,gender,id,image,location,name,origin,species,status,url} = personaje; -> se crea un objeto el 
+                cual se llenara con informacion de los personajes
+                
+                if(contador <9)-> comenzamos con el contador donde daremos un limite de muestra
+                personajes += ` ->utilizaremos personajes para crear un html y mostrar resultados
+                <div class="card"> ->comienza el html
+                    <div class="card-title">
+                        <h1>${name} | No. ${id}</h1>
+                    </div>
+                    <div class="card-body">
+                        <p><b>Creacion: </b>${created}</p>
+                        <p><b>Genero: </b>${gender}</p>
+                        <p><b>Localizacion: </b>${location.name}</p>
+                        <p><b>Origen: </b>${origin.name}</p>
+                        <p><b>Especie: </b>${species}</p>
+                        <p><b>Estado: </b>${status}</p>
+                    </div>
+                    <div class="card-img">
+                        <img class="img-fluid" src="${image}" alt="">
+                    </div>
+                    <card-footer>
+                        <a class="btn btn-primary" href="${url}">Ver mas</a>
+                    </card-footer>
+                </div> -> termina el html
+                `;
+                contador++; ->aqui se hace un incremento del contador hasta llegar al limite que hicimos arriba
+            });
+            $(`#personajes`).html(personajes); -> se exporta como html lo que hicimos arriba
+        })
+        .catch(error => {//SE ATRAPA UN ERROR EN CASO DE EXISTIR
+            console.log(`${error}`);//SE MUESTRA EL ERROR
+        });
+    }
+}
+
+
+
+
+EXPORTACION:
+import {Consulta} from "./consulta"; -> aqui sera donde se exportara la consulta y su ubicacion de donde se traerea
+const rick = new Consulta(); -> se crea una constante llamando la clase
+rick.personajes(); -> se mandara a llamar la clase con el metodo.
+
+MOSTRAR:
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6</title>
+</head>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div id="personajes"> -> Se manda a llamar el metodo personajes por un id
+
+                
+
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="controller/bundle.js"></script> -> se llaman los controladores
+    <script
+  src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
+  integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA="
+  crossorigin="anonymous"></script>
+</body>
+</html>

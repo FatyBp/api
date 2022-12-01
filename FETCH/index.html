@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <title>ES6</title>
+</head>
+<body style="background: rgb(206,174,238);
+background: radial-gradient(circle, rgba(206,174,238,1) 0%, rgba(99,145,227,1) 100%);">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <button class="nav-link text-dark" id="nav-personajes-tab" data-bs-toggle="tab" data-bs-target="#nav-personajes" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Personajes</button>
+                    <button class="nav-link text-dark" id="nav-capitulo-tab" data-bs-toggle="tab" data-bs-target="#nav-capitulos" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Capitulos</button>
+                    <button class="nav-link text-dark" id="nav-location-tab" data-bs-toggle="tab" data-bs-target="#nav-localizacion" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Localizacion</button>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show" id="nav-personajes" role="tabpanel" aria-labelledby="nav-personajes-tab" tabindex="0">
+                        <div id="personajes">
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-capitulos" role="tabpanel" aria-labelledby="nav-capitulo-tab" tabindex="0">
+                        <div id="capitulos">
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-localizacion" role="tabpanel" aria-labelledby="nav-location-tab" tabindex="0">
+                        <div id="localizacion">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="controller/bundle.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA="crossorigin="anonymous"></script>
+</body>
+</html>
